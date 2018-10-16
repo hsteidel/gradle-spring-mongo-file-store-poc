@@ -1,0 +1,32 @@
+#Full Local Application Properties if Spring Cloud Config Server is not running
+---
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.hxs: DEBUG
+
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: hxs-store
+  mvc:
+    async:
+      request-timeout: -1
+  http:
+      multipart:
+        max-file-size: 10000MB
+        max-request-size: 10000MB
+        #Disable Spring's multipart handling
+        enabled: false
+  application:
+    name: object-store-sample
+
+#Actuator Info Endpoint Properties
+info:
+  name: ${spring.application.name}
+  version: 0.0.1
